@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de contato para envio de mensagens. Entre em contato conosco!">
+    <meta name="author" content="Seu Nome">
+
+    <!-- Open Graph / Twitter (para redes sociais) -->
+    <meta property="og:title" content="Formulário de Contato | Nome do Site">
+    <meta property="og:description" content="Envie sua mensagem através do nosso formulário de contato.">
+    <meta property="og:image" content="https://exemplo.com/assets/og-contact-image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Formulário de Contato | Nome do Site">
+    <meta name="twitter:description" content="Envie sua mensagem através do nosso formulário de contato.">
+    <meta name="twitter:image" content="https://exemplo.com/assets/twitter-contact-image.jpg">
+
+    <!-- Ícones -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Pré-carregamento de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Ícones do Material Design -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- PT sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Nome do Site</title>
+    <script src="./vue.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <div id="app">
+
+        <div class="container">
+
+            <ul>
+                <li v-for="comment in comments" :key="comment.id">
+                    <p>{{comment.id}} - {{ comment.text}}</p>
+                </li>
+            </ul>
+
+            <div style="display:flex;">
+                <button @click="addComment">ADD comment</button>
+                <button @click="removeLastComment">Remove last comment</button>
+                <button @click="updateComment">Update comment</button>
+            </div>
+
+
+            <ul>
+                <li v-for="publication in publications" :key="publication.id">
+                    <h3>{{publication.title}}</h3>
+
+                    <input type="text">
+                </li>
+            </ul>
+
+            <button @click="mixPublications">Mix positions</button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+
+            data: {
+
+                comments: [
+                    {
+                        id: 1,
+                        author: "Ricardo Alves",
+                        text: "Este artigo foi muito útil para entender os conceitos básicos do Vue.js!",
+                        timestamp: "2025-05-02T15:45:00-03:00"
+                    },
+                    {
+                        id: 2,
+                        author: "Fernanda Souza",
+                        text: "Gostaria de saber mais sobre a parte de componentes. Poderiam fazer um artigo sobre isso?",
+                        timestamp: "2025-05-02T15:50:30-03:00"
+                    },
+                    {
+                        id: 3,
+                        author: "Gabriel Oliveira",
+                        text: "Ótimo trabalho! A explicação sobre o atributo key foi muito clara.",
+                        timestamp: "2025-05-02T15:55:15-03:00"
+                    }
+                    // Você pode adicionar mais comentários aqui
+                ],
+
+                publications: [
+                    {
+                        id: 1,
+                        title: "Introduction to Vue.js 3",
+                        author: "João Silva",
+                        date: "2025-05-02",
+                        content: "This article provides an overview of the main concepts of Vue.js 3 and how to start developing your first applications.",
+                        tags: ["vuejs", "javascript", "frontend"]
+                    },
+                    {
+                        id: 2,
+                        title: "Components in Vue.js: Reusability and Organization",
+                        author: "Maria Oliveira",
+                        date: "2025-04-28",
+                        content: "Discover how to create and use reusable components in Vue.js to keep your code organized and efficient.",
+                        tags: ["vuejs", "components", "reusability"]
+                    },
+                    {
+                        id: 3,
+                        title: "State Management with Vuex",
+                        author: "Carlos Pereira",
+                        date: "2025-04-20",
+                        content: "Learn how to manage the state of your Vue.js application in a centralized way using Vuex.",
+                        tags: ["vuejs", "vuex", "state management"]
+                    },
+                    {
+                        id: 4,
+                        title: "Custom Directives in Vue.js",
+                        author: "Ana Souza",
+                        date: "2025-04-15",
+                        content: "Explore the power of custom directives in Vue.js and how they can extend the functionality of HTML.",
+                        tags: ["vuejs", "directives", "html"]
+                    },
+
+                    {
+                        id: 5,
+                        title: "Routing with Vue Router",
+                        author: "Pedro Santos",
+                        date: "2025-04-10",
+                        content: "Navigate between different pages of your Vue.js application using Vue Router.",
+                        tags: ["vuejs", "routing", "spa"]
+                    }
+                ],
+            },
+
+            methods: {
+
+                mixPublications() {
+
+                    let mixed = [];
+
+                    mixed[0] = this.publications[2]
+                    mixed[1] = this.publications[0]
+                    mixed[2] = this.publications[1]
+
+                    this.publications = mixed;
+                },
+
+                addComment() {
+                    const nextPosition = this.comments.length + 1;
+
+                    this.comments.push({
+                        id: nextPosition,
+                        author: "New Author",
+                        text: "New comments",
+                        timestamp: "2025-05-02T15:55:15-03:00"
+                    })
+
+                },
+
+                removeLastComment() {
+                    this.comments.pop();
+                },
+
+                updateComment() {
+                    this.$set(this.comments, 2, {
+                        id: 3,
+                        author: "Gabriel Oliveira",
+                        text: "Mafales tchotcholes",
+                        timestamp: "2025-05-02T15:55:15-03:00"
+                    })
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-variation-settings:
+        "wdth" 100;
+
+}
+
+html,
+body,
+div,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+
+}
+
+:root {
+    --dark: #262626;
+    --gray: #888888;
+    --light: #E8E8E8;
+    --lighter: #F2F2F2;
+    --yellow: #FADA5E;
+    --blue: #A5C8FF;
+    --dark-blue: #7FADFF;
+    --darker-blue: #4A7FC9;
+    --title-family: 'Montserrat';
+    --hero-height: calc(100vh - 142px);
+    font-family: 'Work Sans';
+    font-size: 62.52%;
+    font-weight: 300;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--title-family), sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    background-color: var(--light);
+    color: var(--dark);
+    font-size: 1.6rem;
+}
+
+
+table {
+    margin: 20px auto;
+
+}
+
+td,
+th {
+    padding: 1.6rem;
+}
+
+tr:nth-child(even) {
+    background-color: var(--lighter);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    margin: 1rem;
+    background-color: var(--lighter);
+}
+
+
+input {
+    background-color: transparent;
+    border: none;
+    padding: 0.8rem;
+    outline: none;
+    border-radius: 1.6rem;
+    border: 1px solid var(--gray);
+    box-sizing: border-box;
+    transition: padding 0.2s ease-in-out;
+    margin-top: 1rem;
+
+}
+
+input:focus {
+    outline: 3px solid var(--blue);
+    outline-offset: 1px;
+    padding-left: 1.6rem;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-image: none;
+    box-shadow: none;
+    border-radius: 1.6rem;
+    padding: 1rem 1.6rem;
+    background-color: var(--blue);
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin: 1.6rem auto;
+    transition: background-color .1s ease-in-out;
+    display: block;
+}
+
+
+button:hover {
+    background-color: var(--dark-blue);
+
+}
+
+button:active {
+    background-color: var(--light);
+    color: var(--darker-blue);
+    border: solid 1px var(--darker-blue)
+}
